@@ -1,0 +1,9 @@
+{
+  "name": "@nyarthan/prettier-config",
+  "version": "0.1.0",
+  "description": "Sharable prettier configuration",
+  "author": "Jannis Morgenstern <jannis.n.morgenstern@gmail.com> (https://github.com/nyarthan)",
+  "keywords": ["prettier", "prettier-config"],
+  "license": "MIT",
+  "packageManager": "pnpm@10.8.0"
+}
