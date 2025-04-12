@@ -3,7 +3,20 @@
   "version": "0.1.0",
   "description": "Sharable prettier configuration",
   "author": "Jannis Morgenstern <jannis.n.morgenstern@gmail.com> (https://github.com/nyarthan)",
-  "keywords": ["prettier", "prettier-config"],
   "license": "MIT",
-  "packageManager": "pnpm@10.8.0"
+  "keywords": [
+    "prettier",
+    "prettier-config"
+  ],
+  "packageManager": "pnpm@10.8.0",
+  "type": "module",
+  "scripts": {
+    "prettier": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' prettier",
+    "format:check": "pnpm prettier --check .",
+    "format": "pnpm prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
 }
