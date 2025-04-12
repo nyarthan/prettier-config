@@ -16,6 +16,7 @@
     "format": "pnpm prettier --write ."
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
   }
