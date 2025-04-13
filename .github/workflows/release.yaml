@@ -43,7 +43,7 @@ jobs:
           version: |
             pnpm changeset version
           publish: |
-            pnpm build && pnpm publish --access=public --provenance
+            pnpm release
           title: "release: publish package to npm"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
