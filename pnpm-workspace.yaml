@@ -1,3 +1,6 @@
 savePrefix: ""
-strictDepBuilds: true
 engineStrict: true
+
+strictDepBuilds: true
+ignoredBuiltDependencies:
+  - "core-js"
