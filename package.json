@@ -31,20 +31,20 @@
     "test:u": "pnpm node --test-update-snapshots test/snapshots.test.ts "
   },
   "devDependencies": {
-    "@changesets/cli": "^2.28.1",
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@commitlint/format": "^19.8.0",
-    "@commitlint/types": "^19.8.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@rslib/core": "^0.6.2",
-    "@types/node": "^22.14.1",
-    "conventional-changelog-atom": "^5.0.0",
-    "husky": "^9.1.7",
-    "prettier": "^3.5.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "rsbuild-plugin-dts": "^0.6.2",
-    "typescript": "^5.8.3"
+    "@changesets/cli": "2.28.1",
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
+    "@commitlint/format": "19.8.0",
+    "@commitlint/types": "19.8.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.4.1",
+    "@rslib/core": "0.6.2",
+    "@types/node": "22.14.1",
+    "conventional-changelog-atom": "5.0.0",
+    "husky": "9.1.7",
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "rsbuild-plugin-dts": "0.6.2",
+    "typescript": "5.8.3"
   }
 }
