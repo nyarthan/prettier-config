@@ -23,9 +23,12 @@
     "prepare": "husky || true",
     "prettier": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' prettier",
     "changeset": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' changeset",
+    "node": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' node",
     "format:check": "pnpm prettier --check .",
     "format": "pnpm prettier --write .",
-    "build": "rslib build"
+    "build": "rslib build",
+    "test": "pnpm node test/snapshots.test.ts",
+    "test:u": "pnpm node --test-update-snapshots test/snapshots.test.ts "
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
@@ -35,6 +38,7 @@
     "@commitlint/types": "^19.8.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@rslib/core": "^0.6.2",
+    "@types/node": "^22.14.1",
     "conventional-changelog-atom": "^5.0.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",

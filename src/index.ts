@@ -1,15 +1,16 @@
 import type { Config as PrettierConfig } from "prettier";
 
+import type { AstroConfig } from "./plugins/astro.ts";
+import type {
+  ImportOrderConfig,
+  ImportOrderConfigOpts,
+} from "./plugins/importOrder.ts";
+import type { TailwindcssConfig } from "./plugins/tailwindcss.ts";
+
 import { config as defaultConfig } from "./config.ts";
-import { astroConfig, type AstroConfig } from "./plugins/astro.ts";
-import {
-  importOrderConfig,
-  type ImportOrderConfig,
-} from "./plugins/sortImports.ts";
-import {
-  tailwindcssConfig,
-  type TailwindcssConfig,
-} from "./plugins/tailwindcss.ts";
+import { astroConfig } from "./plugins/astro.ts";
+import { getImportOrderConfig } from "./plugins/importOrder.ts";
+import { tailwindcssConfig } from "./plugins/tailwindcss.ts";
 
 type _PrettierConfig = Pick<PrettierConfig, keyof typeof defaultConfig> & {
   plugins?: Array<string>;
@@ -24,7 +25,7 @@ type ConfigOptions = {
   overrides: Partial<_PrettierConfig>;
   plugins: Partial<{
     astro: PluginConfig<AstroConfig>;
-    importOrder: PluginConfig<ImportOrderConfig>;
+    importOrder: PluginConfig<ImportOrderConfig & ImportOrderConfigOpts>;
     tailwindcss: PluginConfig<TailwindcssConfig>;
   }>;
 };
@@ -49,7 +50,12 @@ export function defineConfig(options: Partial<ConfigOptions> = {}): Config {
     Object.assign(
       _config,
       Object.assign(
-        { ...importOrderConfig },
+        {
+          ...getImportOrderConfig({
+            importPrivateScopes:
+              options.plugins.importOrder.overrides?.importPrivateScopes ?? [],
+          }),
+        },
         options.plugins.importOrder.overrides ?? {},
       ),
     );
