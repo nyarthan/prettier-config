@@ -32,7 +32,7 @@ export default defineConfig({
     importOrder: {
       overrides: {
         // only custom configuration, that can be used to order private imports in a monorepo
-        importPrivateScopes: ["@repo", "@repo-dev"],
+        importPrivateScopes: ["repo", "repo-dev"],
       },
     },
   },
