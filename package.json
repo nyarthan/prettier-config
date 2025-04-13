@@ -21,9 +21,9 @@
   },
   "scripts": {
     "prepare": "husky || true",
-    "prettier": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' prettier",
-    "changeset": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' changeset",
-    "node": "NODE_OPTIONS='--disable-warning ExperimentalWarning --experimental-strip-types' node",
+    "prettier": "scripts/with-strip-types prettier",
+    "changeset": "scripts/with-strip-types changeset",
+    "node": "scripts/with-strip-types node",
     "format:check": "pnpm prettier --check .",
     "format": "pnpm prettier --write .",
     "build": "rslib build",
