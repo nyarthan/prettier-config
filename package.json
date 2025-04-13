@@ -8,6 +8,9 @@
     "prettier",
     "prettier-config"
   ],
+  "homepage": "https://github.com/nyarthan/prettier-config?tab=readme-ov-file",
+  "repository": "github:nyarthan/prettier-config",
+  "bugs": "https://github.com/nyarthan/prettier-config/issues",
   "packageManager": "pnpm@10.8.0",
   "type": "module",
   "imports": {
@@ -19,6 +22,9 @@
       "require": "./dist/index.cjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "husky || true",
     "prettier": "scripts/with-strip-types prettier",
@@ -46,5 +52,22 @@
     "prettier-plugin-tailwindcss": "0.6.11",
     "rsbuild-plugin-dts": "0.6.2",
     "typescript": "5.8.3"
+  },
+  "peerDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": ">=4",
+    "prettier": ">=3",
+    "prettier-plugin-astro": ">=0.14",
+    "prettier-plugin-tailwindcss": ">=0.6"
+  },
+  "peerDependenciesMeta": {
+    "@ianvs/prettier-plugin-sort-imports": {
+      "optional": true
+    },
+    "prettier-plugin-astro": {
+      "optional": true
+    },
+    "prettier-plugin-tailwindcss": {
+      "optional": true
+    }
   }
 }
