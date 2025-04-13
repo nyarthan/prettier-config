@@ -27,8 +27,8 @@
     "format:check": "pnpm prettier --check .",
     "format": "pnpm prettier --write .",
     "build": "rslib build",
-    "test": "pnpm node test/snapshots.ts",
-    "test:u": "pnpm node --test-update-snapshots test/snapshots.ts "
+    "test": "pnpm node test/snapshots.test.ts",
+    "test:u": "pnpm node --test-update-snapshots test/snapshots.test.ts "
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
