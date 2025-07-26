@@ -1,5 +1,11 @@
 # @nyarthan/prettier-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 508174d: add some badges
+
 ## 1.0.1
 
 ### Patch Changes
