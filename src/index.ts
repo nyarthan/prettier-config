@@ -73,5 +73,3 @@ export function defineConfig(options: Partial<ConfigOptions> = {}): Config {
 
   return _config;
 }
-
-defineConfig({ overrides: {} });
