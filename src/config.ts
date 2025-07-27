@@ -1,6 +1,6 @@
 import type { Config } from "prettier";
 
-export const config = {
+export const config: Config = {
   experimentalTernaries: true,
   experimentalOperatorPosition: "start",
   printWidth: 80,
@@ -23,4 +23,4 @@ export const config = {
   endOfLine: "lf",
   embeddedLanguageFormatting: "auto",
   singleAttributePerLine: true,
-} satisfies Config;
+};
