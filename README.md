@@ -5,9 +5,9 @@
 
 <div align="center">
 
-![NPM Version](https://img.shields.io/npm/v/%40nyarthan%2Fprettier-config?style=for-the-badge&logo=npm&logoColor=%23fff&label=npm&labelColor=cd0000&color=%23fff)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/nyarthan/prettier-config/ci.yaml?branch=master&style=for-the-badge&logo=github&logoColor=%23fff&label=CI&labelColor=%23151b23)
-![GitHub License](https://img.shields.io/github/license/nyarthan/prettier-config?style=for-the-badge&labelColor=%23151b23&color=%23f0f6fc)
+[![NPM Version](https://img.shields.io/npm/v/%40nyarthan%2Fprettier-config?style=for-the-badge&logo=npm&logoColor=%23fff&label=npm&labelColor=cd0000&color=%23fff)](https://www.npmjs.com/@nyarthan/prettier-config)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/nyarthan/prettier-config/ci.yaml?branch=master&style=for-the-badge&logo=github&logoColor=%23fff&label=CI&labelColor=%23151b23)](https://github.com/nyarthan/prettier-config/actions/workflows/ci.yaml)
+[![GitHub License](https://img.shields.io/github/license/nyarthan/prettier-config?style=for-the-badge&labelColor=%23151b23&color=%23f0f6fc)](./LICENSE)
 
 </div>
 
