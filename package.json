@@ -33,9 +33,6 @@
   ],
   "scripts": {
     "prepare": "husky || true",
-    "prettier": "scripts/with-strip-types prettier",
-    "changeset": "scripts/with-strip-types changeset",
-    "node": "scripts/with-strip-types node",
     "format:check": "pnpm prettier --check .",
     "format": "pnpm prettier --write .",
     "build": "rslib build",
