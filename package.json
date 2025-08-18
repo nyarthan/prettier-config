@@ -33,11 +33,11 @@
   ],
   "scripts": {
     "prepare": "husky || true",
-    "format:check": "pnpm prettier --check .",
-    "format": "pnpm prettier --write .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
     "build": "rslib build",
-    "test": "pnpm node test/snapshots.test.ts",
-    "test:u": "pnpm node --test-update-snapshots test/snapshots.test.ts",
+    "test": "node test/snapshots.test.ts",
+    "test:u": "node --test-update-snapshots test/snapshots.test.ts",
     "release": "pnpm publish --access public --provenance",
     "prerelease": "pnpm build"
   },
