@@ -18,8 +18,14 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/src/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/src/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "files": [
