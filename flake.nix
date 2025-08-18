@@ -9,7 +9,6 @@
   outputs =
     inputs@{
       flake-parts,
-      nixpkgs,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -22,18 +21,14 @@
 
       perSystem =
         {
-          config,
-          self',
-          inputs',
           pkgs,
-          system,
           ...
         }:
         {
           devShells.default = pkgs.mkShell {
             packages = [
-              pkgs.nodejs_22
-	      pkgs.pnpm_10
+              pkgs.nodejs_24
+	            pkgs.pnpm_10
             ];
           };
         };
