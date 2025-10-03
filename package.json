@@ -11,7 +11,7 @@
   "homepage": "https://github.com/nyarthan/prettier-config?tab=readme-ov-file",
   "repository": "github:nyarthan/prettier-config",
   "bugs": "https://github.com/nyarthan/prettier-config/issues",
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.18.0",
   "type": "module",
   "imports": {
     "#package.json": "./package.json"
