@@ -1,5 +1,5 @@
 remotes:
   - git_url: "git@github.com:nyarthan/lefthook-config"
     configs:
-      - "configs/prettier.yaml"
-      - "configs/commitlint.yaml"
+      - "configs/prettier.yml"
+      - "configs/commitlint.yml"
