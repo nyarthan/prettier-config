@@ -32,7 +32,6 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky || true",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "build": "rslib build",
@@ -51,7 +50,7 @@
     "@rslib/core": "0.15.0",
     "@types/node": "24.3.0",
     "conventional-changelog-atom": "5.0.0",
-    "husky": "9.1.7",
+    "lefthook": "1.13.6",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.14",
