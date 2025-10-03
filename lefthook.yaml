@@ -1,0 +1,9 @@
+pre-commit:
+  jobs:
+    - name: format
+      run: ./node_modules/prettier/bin/prettier.cjs --write {staged_files}
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: commitlint --edit {1}
