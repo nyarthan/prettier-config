@@ -24,14 +24,26 @@
           pkgs,
           ...
         }:
+        let
+          node = pkgs.nodejs_24;
+          pnpm = pkgs.pnpm_10;
+        in
         {
           formatter = pkgs.nixfmt-rfc-style;
+
+          apps.write-versions = {
+            type = "app";
+            program = pkgs.callPackage ./nix/write-versions.nix {
+              nodejsVersion = node.version;
+              pnpmVersion = pnpm.version;
+            };
+          };
 
           devShells =
             let
               runtimePackages = [
-                pkgs.nodejs_24
-                pkgs.pnpm_10
+                node
+                pnpm
               ];
               devtoolPackages = [
                 pkgs.lefthook
