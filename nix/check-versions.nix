@@ -8,7 +8,8 @@ pkgs.runCommandLocal "write-versions"
     name = "write-versions";
     src = ../package.json;
     nativeBuildInputs = [ pkgs.jq ];
-  } ''
+  }
+  ''
     mkdir "$out"
 
     nodejsVersion=$(jq -r '.engines.node' "$src")
