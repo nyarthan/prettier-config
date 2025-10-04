@@ -21,22 +21,16 @@ jobs:
       - name: "Checkout Repository"
         uses: "actions/checkout@v5"
 
-      - name: "Install pnpm"
-        uses: "pnpm/action-setup@v4"
-
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v5"
-        with:
-          node-version-file: ".node-version"
-          cache: "pnpm"
+      - name: "Setup Nix Environment"
+        uses: "./.github/actions/setup-nix"
 
       - name: "Install Dependencies"
         run: |
-          pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Check Format"
         run: |
-          pnpm format:check
+          nix develop .#ci --command pnpm format:check
 
   build:
     name: "Build Library"
@@ -45,22 +39,16 @@ jobs:
       - name: "Checkout Repository"
         uses: "actions/checkout@v5"
 
-      - name: "Install pnpm"
-        uses: "pnpm/action-setup@v4"
-
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v5"
-        with:
-          node-version-file: ".node-version"
-          cache: "pnpm"
+      - name: "Setup Nix Environment"
+        uses: "./.github/actions/setup-nix"
 
       - name: "Install Dependencies"
         run: |
-          pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Build Library"
         run: |
-          pnpm build
+          nix develop .#ci --command pnpm build
 
   test:
     name: "Test Formatting"
@@ -69,19 +57,13 @@ jobs:
       - name: "Checkout Repository"
         uses: "actions/checkout@v5"
 
-      - name: "Install pnpm"
-        uses: "pnpm/action-setup@v4"
-
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v5"
-        with:
-          node-version-file: ".node-version"
-          cache: "pnpm"
+      - name: "Setup Nix Environment"
+        uses: "./.github/actions/setup-nix"
 
       - name: "Install Dependencies"
         run: |
-          pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Test Formatting"
         run: |
-          pnpm test
+          nix develop .#ci --command pnpm test

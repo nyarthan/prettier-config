@@ -17,7 +17,6 @@
         "aarch64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
-
       ];
 
       perSystem =
@@ -26,18 +25,36 @@
           ...
         }:
         {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.lefthook
-              pkgs.nixfmt-rfc-style
-              pkgs.nodejs_24
-              pkgs.pnpm_10
-            ];
+          formatter = pkgs.nixfmt-rfc-style;
 
-            shellHook = ''
-              lefthook install
-            '';
-          };
+          devShells =
+            let
+              runtimePackages = [
+                pkgs.nodejs_24
+                pkgs.pnpm_10
+              ];
+              devtoolPackages = [
+                pkgs.lefthook
+                pkgs.nixfmt-rfc-style
+              ];
+
+              local = pkgs.mkShell {
+                packages = runtimePackages ++ devtoolPackages;
+
+                shellHook = ''
+                  lefthook install
+                '';
+              };
+
+              ci = pkgs.mkShell {
+                packages = runtimePackages;
+              };
+
+              default = local;
+            in
+            {
+              inherit default local ci;
+            };
         };
     };
 }
