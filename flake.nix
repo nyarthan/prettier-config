@@ -1,9 +1,9 @@
 {
-  description = "Formeta flake";
+  description = "prettier-config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    flake-parts.url = "github:hercules-ci/flake-parts/main";
   };
 
   outputs =
@@ -17,6 +17,7 @@
         "aarch64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
+
       ];
 
       perSystem =
@@ -27,9 +28,15 @@
         {
           devShells.default = pkgs.mkShell {
             packages = [
+              pkgs.lefthook
+              pkgs.nixfmt-rfc-style
               pkgs.nodejs_24
-	            pkgs.pnpm_10
+              pkgs.pnpm_10
             ];
+
+            shellHook = ''
+              lefthook install
+            '';
           };
         };
     };
