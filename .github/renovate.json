@@ -3,6 +3,6 @@
   "extends": [
     "github>nyarthan/renovate-config",
     "github>nyarthan/renovate-config:javascript",
-    "github>nyarthan/renovate-config:nix",
+    "github>nyarthan/renovate-config:nix"
   ]
 }
