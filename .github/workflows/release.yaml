@@ -23,7 +23,8 @@ jobs:
       - name: "Checkout Repository"
         uses: "actions/checkout@v5"
 
-      - uses: "./.github/actions/setup-nix"
+      - name: "Setup Nix Environment"
+        uses: "./.github/actions/setup-nix"
 
       - name: "Install Dependencies"
         run: |

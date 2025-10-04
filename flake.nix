@@ -25,19 +25,38 @@
           pkgs,
           ...
         }:
-        {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.lefthook
-              pkgs.nixfmt-rfc-style
-              pkgs.nodejs_24
-              pkgs.pnpm_10
-            ];
 
-            shellHook = ''
-              lefthook install
-            '';
-          };
+        {
+          devShells =
+            let
+              isCI = (builtins.getEnv "CI") != "";
+
+              runtimePackages = [
+                pkgs.nodejs_24
+                pkgs.pnpm_10
+              ];
+              devtoolPackages = [
+                pkgs.lefthook
+                pkgs.nixfmt-rfc-style
+              ];
+
+              local = pkgs.mkShell {
+                packages = runtimePackages ++ devtoolPackages;
+
+                shellHook = ''
+                  lefthook install
+                '';
+              };
+
+              ci = pkgs.mkShell {
+                packages = runtimePackages;
+              };
+
+              default = if isCI then ci else local;
+            in
+            {
+              inherit default local ci;
+            };
         };
     };
 }
