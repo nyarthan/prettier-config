@@ -24,14 +24,32 @@
           pkgs,
           ...
         }:
+        let
+          nodejs = pkgs.nodejs_24;
+          pnpm = pkgs.pnpm.override { inherit nodejs; };
+        in
         {
           formatter = pkgs.nixfmt-rfc-style;
+
+          apps.write-versions = {
+            type = "app";
+            program = pkgs.callPackage ./nix/write-versions.nix {
+              nodejsVersion = nodejs.version;
+              pnpmVersion = pnpm.version;
+            };
+            meta.description = "Writes the versions of Node.js & pnpm used by nix to package.json.";
+          };
+
+          checks.check-versions = pkgs.callPackage ./nix/check-versions.nix {
+            nodejsVersion = nodejs.version;
+            pnpmVersion = pnpm.version;
+          };
 
           devShells =
             let
               runtimePackages = [
-                pkgs.nodejs_24
-                pkgs.pnpm_10
+                nodejs
+                pnpm
               ];
               devtoolPackages = [
                 pkgs.lefthook
