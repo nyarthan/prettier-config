@@ -17,6 +17,7 @@
         "aarch64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
+
       ];
 
       perSystem =
@@ -27,14 +28,15 @@
         {
           devShells.default = pkgs.mkShell {
             packages = [
-	   pkgs.lefthook
-	            pkgs.pnpm_10
+              pkgs.lefthook
+              pkgs.nixfmt-rfc-style
               pkgs.nodejs_24
+              pkgs.pnpm_10
             ];
 
-	    shellHook = ''
-	      lefthook install
-	    '';
+            shellHook = ''
+              lefthook install
+            '';
           };
         };
     };
