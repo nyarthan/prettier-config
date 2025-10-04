@@ -6,20 +6,13 @@
 pkgs.runCommandLocal "write-versions"
   {
     name = "write-versions";
-
+    src = ../package.json;
     nativeBuildInputs = [ pkgs.jq ];
-
-    doCheck = true;
-
-    src = ../.;
-  }
-
-  ''
-    cd "$src"
+  } ''
     mkdir "$out"
 
-    nodejsVersion=$(jq -r '.engines.node' package.json)
-    packageManager=$(jq -r '.packageManager' package.json)
+    nodejsVersion=$(jq -r '.engines.node' "$src")
+    packageManager=$(jq -r '.packageManager' "$src")
     pnpmVersion=''${packageManager#"pnpm@"}
 
     if [ "$nodejsVersion" != "${nodejsVersion}" ]; then

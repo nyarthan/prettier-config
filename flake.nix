@@ -40,7 +40,7 @@
             meta.description = "Writes the versions of Node.js & pnpm used by nix to package.json.";
           };
 
-          checks.default = pkgs.callPackage ./nix/check-versions.nix {
+          checks.check-versions = pkgs.callPackage ./nix/check-versions.nix {
             nodejsVersion = nodejs.version;
             pnpmVersion = pnpm.version;
           };
