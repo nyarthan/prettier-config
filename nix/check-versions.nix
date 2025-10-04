@@ -12,7 +12,7 @@ pkgs.runCommandLocal "write-versions"
   ''
     mkdir "$out"
 
-    nodejsVersion=$(jq -r '.engines.node' "$src")
+    nodejsVersion=$(jq -r '.devEngines.runtime.version' "$src")
     packageManager=$(jq -r '.packageManager' "$src")
     pnpmVersion=''${packageManager#"pnpm@"}
 

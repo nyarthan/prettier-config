@@ -14,7 +14,7 @@ pkgs.writeShellApplication {
       --arg nodejsVersion ${nodejsVersion} \
       --arg pnpmVersion ${pnpmVersion} \
       --indent 2 \
-      '.engines.node = $nodejsVersion | .packageManager = ("pnpm@" + $pnpmVersion)' \
+      '.devEngines.runtime.version = $nodejsVersion | .packageManager = ("pnpm@" + $pnpmVersion)' \
       package.json > "$tmp" \
       && mv "$tmp" package.json
   '';
