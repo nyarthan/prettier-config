@@ -9,7 +9,3 @@ runs:
 
     - name: "Setup Nix Cache"
       uses: "DeterminateSystems/magic-nix-cache-action@v13"
-
-    - name: "Enter Shell"
-      shell: "bash"
-      run: nix develop .#ci
