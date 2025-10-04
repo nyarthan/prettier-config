@@ -17,7 +17,6 @@
         "aarch64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
-
       ];
 
       perSystem =
@@ -25,8 +24,9 @@
           pkgs,
           ...
         }:
-
         {
+          formatter = pkgs.nixfmt-rfc-style;
+
           devShells =
             let
               isCI = (builtins.getEnv "CI") != "";
