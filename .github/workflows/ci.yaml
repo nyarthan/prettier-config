@@ -3,7 +3,7 @@ name: "CI"
 on:
   push:
     branches:
-      - "master"
+      - "main"
   pull_request:
   workflow_dispatch:
 
@@ -26,11 +26,11 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop .#ci --command pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: "Check Format"
         run: |
-          nix develop .#ci --command pnpm format:check
+          pnpm format:check
 
   build:
     name: "Build Library"
@@ -44,11 +44,11 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop .#ci --command pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: "Build Library"
         run: |
-          nix develop .#ci --command pnpm build
+          pnpm build
 
   test:
     name: "Test Formatting"
@@ -62,8 +62,8 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop .#ci --command pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: "Test Formatting"
         run: |
-          nix develop .#ci --command pnpm test
+          pnpm test

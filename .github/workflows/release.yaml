@@ -3,7 +3,7 @@ name: "Release"
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 env:
   FORCE_COLOR: "3"
@@ -28,14 +28,14 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop .#ci --command pnpm install --frozen-lockfile
+          install --frozen-lockfile
 
       - name: "Create Release Pull Request or Publish to npm"
         id: "changesets"
         uses: "changesets/action@v1.5.3"
         with:
           version: |
-            nix develop #.ci --command pnpm changeset version
+            pnpm changeset version
           title: "release: publish package to npm"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -44,7 +44,7 @@ jobs:
       - name: "Publish Package to npm"
         if: steps.changesets.outputs.hasChangesets == 'false' && contains(github.event.head_commit.message, 'publish package')
         run: |
-          nix develop .#ci --command pnpm release
+          pnpm release
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           NPM_TOKEN: "${{ secrets.NPM_TOKEN }}"
