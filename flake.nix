@@ -25,8 +25,8 @@
           ...
         }:
         let
-          node = pkgs.nodejs_24;
-          pnpm = pkgs.pnpm_10;
+          nodejs = pkgs.nodejs_24;
+          pnpm = pkgs.pnpm.override { inherit nodejs; };
         in
         {
           formatter = pkgs.nixfmt-rfc-style;
@@ -34,7 +34,7 @@
           apps.write-versions = {
             type = "app";
             program = pkgs.callPackage ./nix/write-versions.nix {
-              nodejsVersion = node.version;
+              nodejsVersion = nodejs.version;
               pnpmVersion = pnpm.version;
             };
           };
@@ -42,7 +42,7 @@
           devShells =
             let
               runtimePackages = [
-                node
+                nodejs
                 pnpm
               ];
               devtoolPackages = [
