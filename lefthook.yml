@@ -3,3 +3,4 @@ remotes:
     configs:
       - "configs/prettier.yml"
       - "configs/commitlint.yml"
+      - "configs/nix.yml"
