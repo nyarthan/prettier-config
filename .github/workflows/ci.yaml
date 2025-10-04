@@ -26,11 +26,11 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop --command pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Check Format"
         run: |
-          nix develop --command pnpm format:check
+          nix develop .#ci --command pnpm format:check
 
   build:
     name: "Build Library"
@@ -44,11 +44,11 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop --command pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Build Library"
         run: |
-          nix develop --command pnpm build
+          nix develop .#ci --command pnpm build
 
   test:
     name: "Test Formatting"
@@ -62,8 +62,8 @@ jobs:
 
       - name: "Install Dependencies"
         run: |
-          nix develop --command pnpm install --frozen-lockfile
+          nix develop .#ci --command pnpm install --frozen-lockfile
 
       - name: "Test Formatting"
         run: |
-          nix develop --command pnpm test
+          nix develop .#ci --command pnpm test
