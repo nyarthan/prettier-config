@@ -4,19 +4,22 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     flake-parts.url = "github:hercules-ci/flake-parts/main";
+    devshell.url = "github:numtide/devshell";
+    lefthook-config.url = "github:nyarthan/lefthook-config";
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.flake-parts.flakeModules.flakeModules
+        inputs.devshell.flakeModule
+        inputs.lefthook-config.flakeModule
+      ];
+
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
       ];
 
       perSystem =
@@ -29,6 +32,10 @@
           pnpm = pkgs.pnpm.override { inherit nodejs; };
         in
         {
+          lefthook-config.tool = {
+            nixfmt.enable = true;
+          };
+
           formatter = pkgs.nixfmt-rfc-style;
 
           apps.write-versions = {
@@ -45,7 +52,7 @@
             pnpmVersion = pnpm.version;
           };
 
-          devShells =
+          devshells =
             let
               runtimePackages = [
                 nodejs
@@ -53,15 +60,15 @@
               ];
               devtoolPackages = [
                 pkgs.lefthook
-                pkgs.nixfmt-rfc-style
               ];
 
-              local = pkgs.mkShell {
+              local = {
                 packages = runtimePackages ++ devtoolPackages;
 
-                shellHook = ''
+                devshell.startup.initLefthook.text = ''
                   lefthook install
                 '';
+                devshell.motd = "";
               };
 
               ci = pkgs.mkShell {
