@@ -19,7 +19,7 @@ jobs:
     runs-on: "ubuntu-22.04-arm"
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Setup Nix Environment"
         uses: "./.github/actions/setup-nix"
@@ -37,7 +37,7 @@ jobs:
     runs-on: "ubuntu-22.04-arm"
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Setup Nix Environment"
         uses: "./.github/actions/setup-nix"
@@ -55,7 +55,7 @@ jobs:
     runs-on: "ubuntu-22.04-arm"
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Setup Nix Environment"
         uses: "./.github/actions/setup-nix"
