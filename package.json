@@ -15,7 +15,7 @@
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": "24.9.0",
+      "version": "24.18.1",
       "onFail": "error"
     }
   },
@@ -55,7 +55,7 @@
     "@commitlint/types": "20.0.0",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
     "@rslib/core": "0.15.0",
-    "@types/node": "24.3.0",
+    "@types/node": "24.13.3",
     "conventional-changelog-atom": "5.0.0",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
